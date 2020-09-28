@@ -21,78 +21,54 @@ screen = pygame.display.set_mode((1000, 750))
 pygame.draw.rect(screen, SKY, (0, 0, 1000, 375))
 pygame.draw.rect(screen, GREEN, (0, 375, 1000, 750))
 
-# man1
-# hands
-pygame.draw.line(screen, BLACK, (180, 375), (105, 465))
-pygame.draw.line(screen, BLACK, (235, 370), (300, 460))
-# feet
-pygame.draw.line(screen, BLACK, (190, 520), (150, 630))
-pygame.draw.line(screen, BLACK, (150, 630), (125, 631))
-pygame.draw.line(screen, BLACK, (230, 520), (245, 625))
-pygame.draw.line(screen, BLACK, (245, 625), (285, 629))
-# body head
-pygame.draw.ellipse(screen, PINK, (160, 350, 100, 200))
-pygame.draw.circle(screen, SKIN, (210, 330), 30)
 
-# women1
-# hands
-pygame.draw.line(screen, BLACK, (300, 460), (410, 380))
-pygame.draw.line(screen, BLACK, (430, 370), (470, 410))
-pygame.draw.line(screen, BLACK, (470, 410), (520, 380))
-# feet
-pygame.draw.line(screen, BLACK, (440, 540), (440, 630))
-pygame.draw.line(screen, BLACK, (440, 630), (460, 635))
-pygame.draw.line(screen, BLACK, (400, 540), (400, 630))
-pygame.draw.line(screen, BLACK, (400, 630), (370, 630))
-# body head
-pygame.draw.polygon(screen, BLUE, [[420, 330], [360, 540],	[490, 540]])
-pygame.draw.circle(screen, SKIN, (420, 330), 30)
+def women(x, y, size, i):
+    # hands
+    pygame.draw.line(screen, BLACK, (x, y), (x + 110 * size * i, y - 80 * size))
+    pygame.draw.line(screen, BLACK, (x + 130 * size * i, y - 90 * size), (x + 170 * size * i, y - 50 * size))
+    pygame.draw.line(screen, BLACK, (x + 170 * size * i, y - 50 * size), (x + 220 * size * i, y - 80 * size))
+    # feet
+    pygame.draw.line(screen, BLACK, (x + 140 * size * i, y + 80 * size), (x + 140 * size * i, y + 170 * size))
+    pygame.draw.line(screen, BLACK, (x + 140 * size * i, y + 170 * size), (x + 160 * size * i, y + 175 * size))
+    pygame.draw.line(screen, BLACK, (x + 100 * size * i, y + 80 * size), (x + 100 * size * i, y + 170 * size))
+    pygame.draw.line(screen, BLACK, (x + 100 * size * i, y + 170 * size), (x + 70 * size * i, y + 170 * size))
+    # body head
+    pygame.draw.polygon(screen, BLUE, [[x + 120 * size * i, y - 130 * size], [x + 60 * size * i, y + 80 * size],
+                                       [x + 190 * size * i, y + 80 * size]])
+    pygame.draw.circle(screen, SKIN, (x + 120 * size * i, y - 130 * size), 30)
 
-# women2
-# hands
-pygame.draw.line(screen, BLACK, (610, 380), (570, 405))
-pygame.draw.line(screen, BLACK, (570, 405), (520, 380))
-pygame.draw.line(screen, BLACK, (630, 370), (730, 460))
-# feet
-pygame.draw.line(screen, BLACK, (640, 540), (640, 630))
-pygame.draw.line(screen, BLACK, (640, 630), (660, 630))
-pygame.draw.line(screen, BLACK, (600, 540), (600, 630))
-pygame.draw.line(screen, BLACK, (600, 630), (570, 635))
-# body head
-pygame.draw.polygon(screen, BLUE, [[620, 330], [560, 540],	[690, 540]])
-pygame.draw.circle(screen, SKIN, (620, 330), 30)
 
-# man1
-# hands
-pygame.draw.line(screen, BLACK, (780, 375), (730, 460))
-pygame.draw.line(screen, BLACK, (835, 370), (905, 460))
-# feet
-pygame.draw.line(screen, BLACK, (790, 520), (750, 630))
-pygame.draw.line(screen, BLACK, (750, 630), (725, 631))
-pygame.draw.line(screen, BLACK, (830, 520), (845, 625))
-pygame.draw.line(screen, BLACK, (845, 625), (885, 629))
-# body head
-pygame.draw.ellipse(screen, PINK, (760, 350, 100, 200))
-pygame.draw.circle(screen, SKIN, (810, 330), 30)
+'''
+Функция рисует женщин
+x, y - координаты кисти несогнутой руки
+size - отношение размера человечка к дефолтному, соответствующему 1
+i -  ориентация относительно оси Oy
+'''
 
-# ice cream1
-pygame.draw.polygon(screen, YELLOW, [[900, 460], [912, 370], [970, 410]])
-pygame.draw.circle(screen, BLACK, (930, 375), 20)
-pygame.draw.circle(screen, RED, (960, 400), 20)
-pygame.draw.circle(screen, WHITE, (957, 370), 20)
 
-# balloons
-pygame.draw.line(screen, BLACK, (520, 380), (530, 200))
-pygame.draw.polygon(screen, YELLOW, [[530, 200], [590, 90], [480, 100]])
-pygame.draw.circle(screen, BLACK, (505, 85), 30)
-pygame.draw.circle(screen, RED, (563, 80), 30)
-pygame.draw.circle(screen, WHITE, (530, 60), 30)
+def man(x, y, size, i):
+    # hands
+    pygame.draw.line(screen, BLACK, (x, y), (x - 50 * size * i, y + 85 * size))
+    pygame.draw.line(screen, BLACK, (x + 55 * size * i, y - 5 * size), (x + 125 * size * i, y + 85 * size))
+    # feet
+    pygame.draw.line(screen, BLACK, (x + 10 * size * i, y + 145 * size), (x - 30 * size * i, y + 255 * size))
+    pygame.draw.line(screen, BLACK, (x - 30 * size * i, y + 255 * size), (x - 25 * size * i, y + 256 * size))
+    pygame.draw.line(screen, BLACK, (x + 50 * size * i, y + 145 * size), (x + 65 * size * i, y + 250 * size))
+    pygame.draw.line(screen, BLACK, (x + 65 * size * i, y + 250 * size), (x + 105 * size * i, y + 254 * size))
+    # body head
+    if i == 1:
+        pygame.draw.ellipse(screen, PINK, (x - 20 * size * i, y - 25 * size, 100 * size, 200 * size))
+    else:
+        pygame.draw.ellipse(screen, PINK, (x - 20 * size * i - 100 * size, y - 25 * size, 100 * size, 200 * size))
+    pygame.draw.circle(screen, SKIN, (x + 30 * size * i, y - 45 * size), 30 * size)
 
-# ice cream2
-pygame.draw.line(screen, BLACK, (105, 465), (66, 330))
-pygame.draw.polygon(screen, RED, [[66, 330], [23, 250], [100, 240]])
-pygame.draw.circle(screen, RED, (80, 230), 25)
-pygame.draw.circle(screen, RED, (40, 234), 25)
+
+'''
+Функция рисует мужчин
+x, y - координаты кисти одной из рук
+size - отношение размера человечка к дефолтному, соответствующему 1
+i -  ориентация относительно оси Oy
+'''
 
 
 def sun(x_cord, y_cord, radius, resolution, len_shines):
@@ -104,7 +80,13 @@ def sun(x_cord, y_cord, radius, resolution, len_shines):
                                                             * radius * len_shines))
 
 
-sun(100, 100, 60, 40, 1.2)
+'''
+Функция рисует солнце
+x_cord, y_cord - координаты центра солнца (а именно его лучей)
+radius - радиус солнца без лучей
+resolution - кол-во лучей
+len_shines - отношение длины луча к радиусу солнца
+'''
 
 
 def cloud(x_cord, y_cord, size, reverse):
@@ -132,6 +114,66 @@ def cloud(x_cord, y_cord, size, reverse):
                                        int(y_cord + 45 * size)), int(30 * size), 1)
 
 
+'''
+Функция рисует облако
+x_cord, y_cord - координаты крайнего кружка
+size - отношение радиуса рисуемого облака к дефолтному радиусу, равному 50
+reverse - ориентация облака относительно оси Oy
+'''
+
+
+def ice_cream1(x, y, size):
+    pygame.draw.polygon(screen, YELLOW, [[x, y], [x + 12 * size, y - 90 * size], [x + 70 * size, y - 50 * size]])
+    pygame.draw.circle(screen, BLACK, (x + 30 * size, y - 85 * size), 20 * size)
+    pygame.draw.circle(screen, RED, (x + 60 * size, y - 60 * size), 20 * size)
+    pygame.draw.circle(screen, WHITE, (x + 57 * size, y - 90 * size), 20 * size)
+
+
+'''
+Функция рисует разноцветное мороженое
+x, y - координаты
+size - отношение размера к дефолтному, соответствующему size = 1
+'''
+
+
+def balloons(x, y, size):
+    pygame.draw.line(screen, BLACK, (x - 10, y), (x + 10 * size, y - 180 * size))
+    pygame.draw.polygon(screen, YELLOW, [[x + 10 * size, y - 180 * size], [x + 70 * size, y - 290 * size],
+                                         [x - 40 * size, y - 280 * size]])
+    pygame.draw.circle(screen, BLACK, (x - 15 * size, y - 295 * size), 30 * size)
+    pygame.draw.circle(screen, RED, (x + 43 * size, y - 300 * size), 30 * size)
+    pygame.draw.circle(screen, WHITE, (x + 10 * size, y - 320 * size), 30 * size)
+
+
+'''
+Функция рисует шары
+x, y - координаты начала верёвки
+size - отношение размера к дефолтному, соответствующему size = 1
+'''
+
+
+def ice_creame2(x, y, size):
+    pygame.draw.line(screen, BLACK, (x + 5, y - 8), (x - 39 * size, y - 135 * size))
+    pygame.draw.polygon(screen, RED, [[x - 39 * size, y - 135 * size], [x - 82 * size, y - 215 * size],
+                                      [x - 5 * size, y - 225 * size]])
+    pygame.draw.circle(screen, RED, (x - 25 * size, y - 235 * size), 25 * size)
+    pygame.draw.circle(screen, RED, (x - 65 * size, y - 231 * size), 25 * size)
+
+
+'''
+Функция рисует шары
+x, y - координаты начала верёвки
+size - отношение размера к дефолтному, соответствующему size = 1
+'''
+
+women(290, 460, 1, 1)
+women(730, 460, 1, -1)
+man(780, 375, 1, 1)
+man(235, 370, 1, -1)
+ice_cream1(900, 460, 1)
+balloons(520, 380, 1)
+ice_creame2(105, 465, 1)
+sun(100, 100, 60, 40, 1.2)
 cloud(800, 60, 1, 'normal')
 cloud(300, 70, 1.3, 'reverse')
 
